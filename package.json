@@ -1,0 +1,41 @@
+{
+  "name": "cypress example",
+  "version": "1.0.0",
+  "description": "Cypress + Typescript + Cucumber",
+  "main": "index.js",
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^15.1.3",
+    "@cypress/browserify-preprocessor": "^3.0.2",
+    "cypress": "^12.14.0",
+    "cypress-file-upload": "^5.0.8",
+    "multiple-cucumber-html-reporter": "^3.0.1",
+    "typescript": "^4.9.5"
+  },
+  "scripts": {
+    "cy:open": "cypress open --env envName=local",
+    "cy:run:chrome": "cypress run --env envName=environment-name --browser chrome & node cucumber-html-report.js",
+    "cy:run:chrome:regression": "cypress run --env tags=@regression,envName=environment-name --browser chrome & node cucumber-html-report.js",
+    "cy:report": "node cucumber-html-report.js",
+    "cy:run:dashboard": "npx cypress run --record --key cee7dde1-eaab-4f78-9223-aa89317ee727"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": false,
+    "stepDefinitions": "cypress/e2e/step_definitions/*.ts",
+    "filterSpecs": true,
+    "omitFiltered": true,
+    "json": {
+      "enabled": true,
+      "output": "cypress/json-logs/cucumber-messages.ndjson"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlosv4150/cypress-example.git"
+  },
+  "author": "cvibanco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carlosv4150/cypress-example/issues"
+  },
+  "homepage": "https://github.com/carlosv4150/cypress-example#readme"
+}
