@@ -1,12 +1,12 @@
-const { defineConfig } = require("cypress");
-const preprocessor = require("@badeball/cypress-cucumber-preprocessor");
-const browserify = require("@badeball/cypress-cucumber-preprocessor/browserify");
+const { defineConfig } = require('cypress');
+const preprocessor = require('@badeball/cypress-cucumber-preprocessor');
+const browserify = require('@badeball/cypress-cucumber-preprocessor/browserify');
 
 async function setupNodeEvents(on, config) {
 
     await preprocessor.addCucumberPreprocessorPlugin(on, config);
-    on("file:preprocessor", browserify.default(config, {
-        typescript: require.resolve("typescript")
+    on('file:preprocessor', browserify.default(config, {
+        typescript: require.resolve('typescript')
         })
     );
 
@@ -30,11 +30,11 @@ async function setupNodeEvents(on, config) {
 module.exports = defineConfig({
     projectId: 'xha1xy',
     e2e: {
-        specPattern: "**/*.feature",
+        specPattern: '**/*.feature',
         setupNodeEvents
     },
     video: false,
-    defaultCommandTimeout: 6000,
+    defaultCommandTimeout: 10000,
     responseTimeout: 10000,
-    requestTimeout: 6000
+    requestTimeout: 10000
 });

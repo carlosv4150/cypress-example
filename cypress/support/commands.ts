@@ -10,8 +10,8 @@ Cypress.Commands.add('login', (username) => {
         url: 'https://www.latlong.net/user/login',
         form: true,
         body: {
-            "email": username,
-            "password1": password
+            'email': username,
+            'password1': password
         }
     });
 })

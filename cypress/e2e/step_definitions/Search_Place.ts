@@ -5,12 +5,12 @@ import LatLongPage from '../../pages/LatLongPage';
 
 const latLongPage = new LatLongPage();
 
-Given("I am on the latlong site", () => {
+Given('I am on the latlong site', () => {
     latLongPage.visit();
     latLongPage.getPlaceNameField().should('exist');
 });
 
-When("I enter {string} in the {string} field", (value: string, fieldName: string) => {
+When('I enter {string} in the {string} field', (value: string, fieldName: string) => {
     latLongPage.enterValue(value);
 });
 
