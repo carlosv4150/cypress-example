@@ -12,21 +12,17 @@
     "typescript": "^4.9.5"
   },
   "scripts": {
-    "cy:open": "cypress open --env envName=local",
-    "cy:run:chrome": "cypress run --env envName=environment-name --browser chrome & node cucumber-html-report.js",
-    "cy:run:chrome:regression": "cypress run --env tags=@regression,envName=environment-name --browser chrome & node cucumber-html-report.js",
-    "cy:report": "node cucumber-html-report.js",
-    "cy:run:dashboard": "npx cypress run --record --key cee7dde1-eaab-4f78-9223-aa89317ee727"
+    "cy:open": "cypress open --env envName=latlong",
+    "cy:run:ui": "cypress run --env tags=@ui,envName=latlong --browser chrome",
+    "cy:run:api": "cypress run --env tags=@api,envName=latlong --browser chrome",
+    "cy:run:regression": "cypress run --env tags=@regression,envName=latlong --browser chrome",
+    "cy:run:dashboard": "npx cypress run --env envName=latlong --record --key cee7dde1-eaab-4f78-9223-aa89317ee727"
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": false,
     "stepDefinitions": "cypress/e2e/step_definitions/*.ts",
     "filterSpecs": true,
-    "omitFiltered": true,
-    "json": {
-      "enabled": true,
-      "output": "cypress/json-logs/cucumber-messages.ndjson"
-    }
+    "omitFiltered": true
   },
   "repository": {
     "type": "git",
