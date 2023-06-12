@@ -13,7 +13,6 @@ Given('I have the API endpoint {string}', (endpoint: string) => {
 });
 
 When('I make a GET request to {string}', (endpoint: string) => {
-    console.log(url);
     cy.request('GET', url).then((res) => {
         response = res;
       });
